@@ -10,12 +10,12 @@ export const signInSchema = z.object({
     password: z
         .string()
         .min(1, 'Password is required')
-        .min(6, 'Password must be at least 6 characters'),
+        .min(8, 'Password must be at least 8 characters'),
 });
 
 export const signUpSchema = z
     .object({
-        username: z
+        name: z
             .string()
             .min(1, 'Username is required')
             .min(3, 'Username must be at least 3 characters')
@@ -35,9 +35,9 @@ export const signUpSchema = z
                 'Password must contain uppercase, lowercase and a number'
             ),
 
-        confirmPassword: z.string(),
-    })
-    .refine(data => data.password === data.confirmPassword, {
-        message: 'Passwords do not match',
-        path: ['confirmPassword'],
+        // confirmPassword: z.string(),
     });
+    // .refine(data => data.password === data.confirmPassword, {
+    //     message: 'Passwords do not match',
+    //     path: ['confirmPassword'],
+    // });

@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -20,7 +19,8 @@ const AuthStack = () => {
         initialRouteName='SignIn'
         screenOptions={{
           statusBarTranslucent: true,
-          headerShown: false
+          headerShown: false,
+          animation: "flip"
         }}
         >
             <Stack.Screen

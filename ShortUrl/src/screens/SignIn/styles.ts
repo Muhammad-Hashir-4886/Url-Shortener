@@ -1,4 +1,4 @@
-import {StyleSheet} from "react-native"
+import { StyleSheet } from "react-native"
 
 const styles = StyleSheet.create({
     container: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     },
     form: {
         // paddingHorizontal: "2%",
-        marginTop: 90
+        marginTop: 50
     },
     label: {
         textAlign: 'left',
@@ -33,8 +33,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 'auto',
         marginBottom: 20,
         borderColor: "#277ddf",
-        borderRadius: 13
-    }, 
+        borderRadius: 13,
+        color: "#000000",
+        padding: 10
+    },
     button: {
         backgroundColor: "#277ddf",
         paddingVertical: 15,
@@ -50,11 +52,17 @@ const styles = StyleSheet.create({
     },
     footer: {
         textAlign: "center",
-        marginTop: 5
+        marginTop: 10
     },
     innerFooter: {
         color: "#1379d8"
-    }
+    },
+    errorText: {
+        color: 'red',
+        fontSize: 12,
+        marginLeft: "8%",
+        marginBottom: 20,
+    },
 });
 
 export default styles

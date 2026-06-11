@@ -54,10 +54,13 @@ const SignIn = ({navigation}: SignInProps) => {
       <View style={styles.subCont}>
 
         <View style={styles.form}>
-          
+
           <Text style={styles.label}>Email</Text>
           <TextInput
-          style={styles.inputBox}
+          style={[
+              styles.inputBox,
+              errors.email ? {marginBottom: 0} : {marginBottom: 20}
+            ]}
           value={formData.email}
           onChangeText={text => {
               setFormData(prev => ({
@@ -73,18 +76,49 @@ const SignIn = ({navigation}: SignInProps) => {
               }
             }}
             placeholder="Enter email"
+            placeholderTextColor={"#9e9e9e"}
             keyboardType="email-address"
             autoCapitalize="none"
           />
+          {errors.email && (
+            <Text style={styles.errorText}>
+              {errors.email}
+            </Text>
+          )}
 
           <Text style={styles.label}>Password</Text>
           <TextInput
-          style={styles.inputBox}
+          style={[
+              styles.inputBox,
+              errors.password ? {marginBottom: 0} : {marginBottom: 20}
+            ]}
           value={formData.password}
+          onChangeText={text => {
+              setFormData(prev => ({
+                ...prev,
+                password: text
+              }));
+
+              if (errors.password) {
+                setErrors(prev => ({
+                  ...prev,
+                  password: undefined,
+                }));
+              }
+            }}
+            placeholder="Enter password"
+            placeholderTextColor={"#9e9e9e"}
+            secureTextEntry
           />
+          {errors.password && (
+            <Text style={styles.errorText}>
+              {errors.password}
+            </Text>
+          )}
 
           <TouchableOpacity
           style={styles.button}
+          onPress={handleSignIn}
           >
             <Text style={styles.btnText}>
               Sign In
