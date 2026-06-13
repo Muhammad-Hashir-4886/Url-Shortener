@@ -2,10 +2,9 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send("<h1>Hello World</h1>")
-});
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Important for API
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("server is running on port 3000")
-})
+});
