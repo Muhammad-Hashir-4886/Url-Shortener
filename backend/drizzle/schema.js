@@ -25,7 +25,9 @@ export const sessionsTable = mysqlTable("sessions", {
   userId: int("user_id").notNull().references(() => usersTable.id, 
   {onDelete: 'cascade'}),
   valid: boolean().default(true).notNull(),
-  userAgent: text("user_agent"),
+  deviceId: varchar("device_id", { length: 255 }), // For tracking multiple devices
+  deviceName: varchar("device_name", { length: 255 }),
+  platform: varchar({ length: 50 }), // 'ios', 'android', 'web'
   ip: varchar({length: 255}),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().onUpdateNow().notNull(),

@@ -213,15 +213,16 @@ apiClient.interceptors.response.use(
 // ─── Device info helper ───────────────────────────────────────────────────────
 
 async function getDeviceInfo(): Promise<DeviceInfoData> {
-    const [deviceId, deviceName] = await Promise.all([
+    const [deviceId, deviceName, platform] = await Promise.all([
         DeviceInfo.getUniqueId(),
         DeviceInfo.getDeviceName(),
+        DeviceInfo.getSystemName(),
     ]);
 
     return {
         deviceId,
         deviceName,
-        platform: DeviceInfo.getSystemName(),
+        platform,
     };
 }
 
